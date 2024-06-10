@@ -1,5 +1,4 @@
 // main.dart
-// ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
 import 'pages/login.dart';
@@ -22,11 +21,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => LoginSelectionPage(),
-        '/register': (context) => RegisterPage(),
+        '/register': (context) => const RegisterPage(),
         '/login': (context) => LoginPage(),
-        '/home_caregiver': (context) => ActivityInputPage(),
-        '/home_parent': (context) => ChildInputPage(),
-        '/child_activities': (context) => ChildActivitiesPage(          
+        '/home_caregiver': (context) => const ActivityInputPage(),
+        '/home_parent': (context) => const ChildInputPage(),
+        '/child_activities': (context) => const ChildActivitiesPage(          
           childName: '',
           childAge: 0,
           ),

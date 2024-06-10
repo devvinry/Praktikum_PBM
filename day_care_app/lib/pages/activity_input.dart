@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ActivityInputPage extends StatefulWidget {
+  const ActivityInputPage({super.key});
+
   @override
   _ActivityInputPageState createState() => _ActivityInputPageState();
 }
@@ -99,10 +101,11 @@ Widget buildOtherItemNeededTextField() {
       firstDate: DateTime(2000),
       lastDate: DateTime(2101),
     );
-    if (picked != null && picked != selectedDate)
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
       });
+    }
   }
 
   _selectTime(BuildContext context, TimeOfDay initialTime, Function(TimeOfDay) onTimeSelected) async {
@@ -139,30 +142,30 @@ Widget buildOtherItemNeededTextField() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Child Input Activity'),
+        title: const Text('Child Input Activity'),
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: Color.fromARGB(255, 163, 186, 197),
+      backgroundColor: const Color.fromARGB(255, 163, 186, 197),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/bg_activity_input.jpg'), // Ganti dengan path gambar latar belakang Anda
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Child Information',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Child Name',
@@ -177,7 +180,7 @@ Widget buildOtherItemNeededTextField() {
                       setState(() => childName = val);
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Age of Child',
@@ -193,7 +196,7 @@ Widget buildOtherItemNeededTextField() {
                     },
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Body Temperature (°C)',
@@ -209,7 +212,7 @@ Widget buildOtherItemNeededTextField() {
                     },
                   ),
 
-                                    SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Child Condition',
@@ -225,38 +228,38 @@ Widget buildOtherItemNeededTextField() {
                     },
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ListTile(
                     onTap: () => _selectDate(context),
                   ),
 
                   ListTile(
                     title: Text("Drop-off Date : ${selectedDate}"),
-                    trailing: Icon(Icons.calendar_today),
+                    trailing: const Icon(Icons.calendar_today),
                     onTap: () => _selectDate(context),
                   ),
 
                                     ListTile(
                     title: Text("Arrival Time: ${dropOffTime.format(context)}"), // Display drop-off time
-                    trailing: Icon(Icons.access_time),
+                    trailing: const Icon(Icons.access_time),
                     onTap: () => _selectTime(context, dropOffTime, (picked) => dropOffTime = picked), // Select drop-off time
                   ),
 
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Meals',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ...meals.keys.map((mealType) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           mealType[0].toUpperCase() + mealType.substring(1),
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Food',
@@ -272,11 +275,11 @@ Widget buildOtherItemNeededTextField() {
                             });
                           },
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Quantity:'),
+                            const Text('Quantity:'),
                             Row(
                               children: [
                                 Expanded(
@@ -313,7 +316,7 @@ Widget buildOtherItemNeededTextField() {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         TextFormField
 (
                           decoration: InputDecoration(
@@ -330,23 +333,23 @@ Widget buildOtherItemNeededTextField() {
                             });
                           },
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     );
                   }).toList(),
 
-SizedBox(height: 20),
-                  Text(
+const SizedBox(height: 20),
+                  const Text(
                     'Toilet Time',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   ListTile(
                     title: Text("Time: ${bathroomTime.format(context)}"), // Display toilet time
-                    trailing: Icon(Icons.access_time),
+                    trailing: const Icon(Icons.access_time),
                     onTap: () => _selectBathroomTime(context), // Select toilet time
                   ),
-                  SizedBox(height: 10),
-                  Text('Type:', style: TextStyle(fontSize: 18)),
+                  const SizedBox(height: 10),
+                  const Text('Type:', style: TextStyle(fontSize: 18)),
                   Row(
                     children: [
                       Expanded(
@@ -375,8 +378,8 @@ SizedBox(height: 20),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Text('Dry/Wet/BM:', style: TextStyle(fontSize: 18)),
+                  const SizedBox(height: 10),
+                  const Text('Dry/Wet/BM:', style: TextStyle(fontSize: 18)),
                   Row(
                     children: [
                       Expanded(
@@ -418,12 +421,12 @@ SizedBox(height: 20),
                     ],
                   ),
 
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Activities',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Activities Description',
@@ -437,12 +440,12 @@ SizedBox(height: 20),
                       setState(() => activityDescription = val);
                     },
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Note to Parents',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Note',
@@ -460,7 +463,7 @@ SizedBox(height: 20),
 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Children's Feelings",
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -495,7 +498,7 @@ Column(
 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Items the Child Needs',
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -527,19 +530,19 @@ Column(
                 ),
 
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Children's activities H=have been saved")),
+                            const SnackBar(content: Text("Children's activities have been saved")),
                           );
                         }
                       },
-                      child: Text('Save'),
+                      child: const Text('Save'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 163, 186, 197),
+                        backgroundColor: const Color.fromARGB(255, 163, 186, 197),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),

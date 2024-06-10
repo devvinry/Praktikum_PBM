@@ -4,18 +4,18 @@ class ChildActivitiesPage extends StatelessWidget {
   final String childName;
   final int childAge;
 
-  ChildActivitiesPage({required this.childName, required this.childAge});
+  const ChildActivitiesPage({required this.childName, required this.childAge});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Child Activities Report'),
+        title: const Text('Child Activities Report'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/bg_child_activities.jpg"),
             fit: BoxFit.cover,
@@ -24,7 +24,7 @@ class ChildActivitiesPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             color: Colors.black.withOpacity(0.8),
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -36,7 +36,7 @@ class ChildActivitiesPage extends StatelessWidget {
                   _buildInfoRow('Body Temperature', '36.5°C'),
                   _buildInfoRow('Condition', 'Healthy'),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSection('Meal Schedule', [
                   _buildMealInfo('Breakfast', 'Pancakes', 'some', 'Ate well'),
                   _buildMealInfo('Lunch', 'Pasta', 'lots', 'Finished everything'),
@@ -44,13 +44,13 @@ class ChildActivitiesPage extends StatelessWidget {
                   _buildMealInfo('Fluids', 'Water', 'lots', 'Drank plenty'),
                   _buildMealInfo('Other', 'Fruits', 'some', 'Had a few pieces'),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSection('Toilet Time', [
                   _buildInfoRow('Time', '09:00 AM'),
                   _buildInfoRow('Type', 'Potty'),
                   _buildInfoRow('Dry/Wet/BM', 'Dry'),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSection('Child\'s Feelings', [
                   _buildFeelingRow('Sad', false),
                   _buildFeelingRow('Happy', true),
@@ -58,7 +58,7 @@ class ChildActivitiesPage extends StatelessWidget {
                   _buildFeelingRow('Confident', true),
                   _buildFeelingRow('Naughty', false),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSection('Items Needed', [
                   _buildItemRow('Diapers', false),
                   _buildItemRow('Towel', true),
@@ -71,7 +71,7 @@ class ChildActivitiesPage extends StatelessWidget {
                   _buildItemRow('Toothpaste', false),
                   _buildItemRow('Other', false),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 _buildSection('Additional Information', [
                   _buildInfoRow('Rest Time', '1 hour'),
                   _buildInfoRow('Bathroom Time', '15 minutes'),
@@ -94,16 +94,16 @@ class ChildActivitiesPage extends StatelessWidget {
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(8.0),
       ),
-      margin: EdgeInsets.symmetric(vertical: 8.0),
-      padding: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Column(children: children),
         ],
       ),
@@ -112,17 +112,17 @@ class ChildActivitiesPage extends StatelessWidget {
 
   Widget _buildInfoRow(String label, String value) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            label + ':',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            '$label:',
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
           Text(
             value,
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
         ],
       ),
@@ -135,12 +135,12 @@ class ChildActivitiesPage extends StatelessWidget {
       children: [
         Text(
           mealType,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         _buildInfoRow('Food', food),
         _buildInfoRow('Quantity', quantity),
         _buildInfoRow('Comments', comments),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }

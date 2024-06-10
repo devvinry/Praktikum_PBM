@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -15,14 +17,14 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/bg_register.jpg"), // Ganti dengan path gambar Anda
+            image: AssetImage("images/bg_register.jpg"), // Ganti dengan path gambar
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Center(
             child: SingleChildScrollView(
               child: Form(
@@ -30,13 +32,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
+                    const Icon(
                       Icons.account_circle,
                       size: 150,
                       color: Colors.blueAccent,
                     ),
-                    SizedBox(height: 20.0),
-                    Text(
+                    const SizedBox(height: 20.0),
+                    const Text(
                       'Register',
                       style: TextStyle(
                         fontSize: 30,
@@ -44,7 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Email',
@@ -53,14 +55,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.email, color: Colors.blueAccent),
+                        prefixIcon: const Icon(Icons.email, color: Colors.blueAccent),
                       ),
                       validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                       onChanged: (val) {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Password',
@@ -69,7 +71,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.lock, color: Colors.blueAccent),
+                        prefixIcon: const Icon(Icons.lock, color: Colors.blueAccent),
                       ),
                       obscureText: true,
                       validator: (val) => val!.length < 6 ? 'Enter a password 6+ chars long' : null,
@@ -77,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         setState(() => password = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: 'Confirm Password',
@@ -86,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.lock, color: Colors.blueAccent),
+                        prefixIcon: const Icon(Icons.lock, color: Colors.blueAccent),
                       ),
                       obscureText: true,
                       validator: (val) => val != password ? 'Passwords do not match' : null,
@@ -94,17 +96,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         setState(() => confirmPassword = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                         backgroundColor: Colors.blueAccent,
                       ),
-                      child: Text('Register'),
+                      child: const Text('Sign Up'),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.pop(context);

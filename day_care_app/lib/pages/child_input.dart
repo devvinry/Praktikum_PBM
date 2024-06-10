@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'child_activities.dart'; // Import the ChildActivitiesPage
 
 class ChildInputPage extends StatefulWidget {
+  const ChildInputPage({super.key});
+
   @override
   _ChildInputPageState createState() => _ChildInputPageState();
 }
@@ -17,20 +19,20 @@ class _ChildInputPageState extends State<ChildInputPage> {
     return Scaffold(
       extendBodyBehindAppBar: true, // Extend the background behind the app bar
       appBar: AppBar(
-        title: Text('Input Data Anak'),
+        title: const Text('Child Data Input'),
         backgroundColor: Colors.transparent, // Set app bar background to transparent
         elevation: 0, // Remove app bar shadow
       ),
       backgroundColor: Colors.transparent, // Set scaffold background to transparent
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/bg_child_input.jpg"), 
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Center(
             child: SingleChildScrollView(
               child: Form(
@@ -38,62 +40,62 @@ class _ChildInputPageState extends State<ChildInputPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(
+                    const Icon(
                       FontAwesomeIcons.babyCarriage,
                       size: 100,
                       color: Colors.blueAccent,
                     ),
-                    SizedBox(height: 20.0),
-                    Text(
-                      'Input Data Anak',
+                    const SizedBox(height: 20.0),
+                    const Text(
+                      'Child Data Input',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.blueAccent,
                       ),
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Nama Anak',
+                        hintText: 'Child Name',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
+                        prefixIcon: const Icon(Icons.person, color: Colors.blueAccent),
                       ),
-                      validator: (val) => val!.isEmpty ? 'Masukkan nama anak' : null,
+                      validator: (val) => val!.isEmpty ? 'Enter the child name' : null,
                       onChanged: (val) {
                         setState(() => name = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Usia Anak',
+                        hintText: 'Child Age',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(Icons.cake, color: Colors.blueAccent),
+                        prefixIcon: const Icon(Icons.cake, color: Colors.blueAccent),
                       ),
-                      validator: (val) => val!.isEmpty ? 'Masukkan usia anak' : null,
+                      validator: (val) => val!.isEmpty ? 'Enter the child age' : null,
                       onChanged: (val) {
                         setState(() => age = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white, backgroundColor: Colors.blueAccent,
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: Text('Submit'),
+                      child: const Text('Submit'),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
