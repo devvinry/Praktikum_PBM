@@ -19,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/bg_register.jpg"), // Ganti dengan path gambar
+            image: AssetImage("images/bg_register.jpg"), 
             fit: BoxFit.cover,
           ),
         ),
